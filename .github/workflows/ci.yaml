@@ -4,8 +4,7 @@ name: CI Pipeline
 on:
   pull_request:
     branches: [ main]
-  
-  jobs:
+jobs:
     ci-Pipeline:
       runs-on: ubuntu-latest
 
