@@ -1,31 +1,30 @@
-
 name: CI Pipeline
 
 on:
   pull_request:
     branches: [ main]
 jobs:
-    ci-Pipeline:
-      runs-on: ubuntu-latest
+  ci-Pipeline:
+    runs-on: ubuntu-latest
 
-      steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
 
-      - name: Setup Node.jobs
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-          cache: 'npm'
+    - name: Setup Node.jobs
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        cache: 'npm'
       
-      - name: Install dependencies
-        run: npm Install
+    - name: Install dependencies
+      run: npm Install
       
-      - name: Run ESLint
-        run: npm run lint
+    - name: Run ESLint
+      run: npm run lint
       
-      - name: Run Prettier
-        uses: npm run prittier -- --write
+    - name: Run Prettier
+      run: npm run prittier -- --write
       
-      - name: Build Application
-        uses: npm run Build
+    - name: Build Application
+      run: npm run Build
